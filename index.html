@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday!</title>
+  </head>
+  <body>
+    <br>
+    <center>
+<button id="putarAudio" class=" px-7 py-3 bg-customBlue text-white rounded-full hover:bg-blue-600 font-medium text-base text-center">Putar Musik!</button>
+</center>
+<audio id="musikLatar" loop>
+    <source src="src/assets/lagu.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung elemen audio. 
+</audio>
+
+<script>
+    document.getElementById('putarAudio').addEventListener('click', function() {
+        var audio = document.getElementById('musikLatar');
+        // 1. **Atur volume** menjadi kecil (misalnya 0.2 atau 20%)
+        audio.volume = 0.2;
+        audio.play().catch(error => {
+            // Tangani error jika pemutaran gagal (misalnya karena kebijakan autoplay)
+            console.error("Pemutaran gagal:", error);
+        });
+    });
+</script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
